@@ -1,5 +1,6 @@
 #include <gtk/gtk.h>
 #include <giw.h>
+#include <giwknob.h>
 
 /* This is a callback function. The data arguments are ignored
  * in this example. More on callbacks below. */
@@ -9,10 +10,10 @@ static void hello( GtkWidget *widget,
     g_print ("Hello World\n");
 }
 
-static void knob(GtkWidget *widget,
+static void knob_func(GtkWidget *widget,
 		 gpointer data )
 {
-	g_print("People, Hello\n");
+	g_print("People, Hello\n ");
 }
 
 static gboolean delete_event( GtkWidget *widget,
@@ -49,7 +50,13 @@ int main( int   argc,
     GtkWidget *knob;
     GtkAdjustment *adjustment;
     gdouble value, upper, lower;
-     /* This is called in all GTK applications. Arguments are parsed
+    
+    value = 5;
+    upper = 100;
+    lower = 0;
+    
+    gchar *knob_title = "knob_title";
+    /* This is called in all GTK applications. Arguments are parsed
      * from the command line and are returned to the application. */
     gtk_init (&argc, &argv);
     
@@ -93,8 +100,11 @@ int main( int   argc,
     */
 
     knob = giw_knob_new_with_adjustment(value, upper, lower);
+    giw_knob_set_title (GIW_KNOB(knob), knob_title);
     gtk_container_add(GTK_CONTAINER (window), knob);
-   /*
+    gtk_widget_show(knob);
+    g_signal_connect (knob, "clicked", G_CALLBACK (knob_func), NULL);
+ /*
    ENDS HERE
    */
     /* This packs the button into the window (a gtk container). */
