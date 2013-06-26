@@ -63,11 +63,10 @@ void update_csv(float value)
 	*/
 	
 	printf("hello");
-	fp = fopen("results.dat","w+r");
+	fp = fopen("results.dat","rt");
 	fscanf(fp,"%f, %i", &v1, &f1);
 	fclose(fp);
-	printf("v1: %f,f1: %i\n",v1,f1);
-	printf("world");
+	
 	if (f1 == 1){
 		fp2 = fopen("results.dat","w");
 		int flag=0;
