@@ -45,22 +45,11 @@ void adjustment_value_changed(GtkAdjustment *adjustment, gpointer user_data)
 
 void update_csv(float value)
 {	
-	//char str[15];
-	//int flag = 1;
 	float v1;
 	int f1;
 
 
 	FILE *fp, *fp2;
-	//fp = fopen("results.dat","a");
-	//sprintf(str,"%f",value);
-	/*
-	if (flag == 1){
-	fp = fopen("results.dat","w");
-	fprintf(fp,"%f, %i\n",value,flag);
-	fclose(fp);
-	}
-	*/
 	
 	printf("hello");
 	fp = fopen("results.dat","rt");
