@@ -23,6 +23,7 @@ James Scott Jr <skoona@users.sourceforge.net>
 
 #include <gtk/gtk.h>
 #include <giwknob.h> 
+#include "csv_rw.h"
 
 GtkWidget *window;
 GtkAdjustment *adjustment;
@@ -30,41 +31,19 @@ GtkWidget *vbox;
 GtkWidget *knob;
 GtkWidget *label;
 char str[15];
-void update_csv(float);
+//void update_csv_knob(float);
 
 void adjustment_value_changed(GtkAdjustment *adjustment, gpointer user_data)
 {
 	// Creating the string
 	sprintf(str, "Value : %f", adjustment->value); 
 	
-	update_csv(adjustment->value);
+	update_csv_knob(adjustment->value);
 	// Now, changing the text of the label
 	gtk_label_set_text(GTK_LABEL(label), str); 
 
 }
 
-void update_csv(float value)
-{	
-	float v1;
-	int f1;
-
-
-	FILE *fp, *fp2;
-	
-	printf("hello");
-	fp = fopen("results.dat","rt");
-	fscanf(fp,"%f, %i", &v1, &f1);
-	fclose(fp);
-	
-	if (f1 == 1){
-		fp2 = fopen("results.dat","w");
-		int flag=0;
-		fprintf(fp2,"%f, %i",value,flag);
-		fclose(fp2);
-	}
-
-
-}
 
 
 int main (int argc, char *argv[])
