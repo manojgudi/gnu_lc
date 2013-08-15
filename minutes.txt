@@ -1,0 +1,8 @@
+GRAS
+GQRS
+1)GR-MODTOOLS
+2)GR-CONTROLPORT
+3)GR-UTILS
+
+@Everyone should be conversant with writing blocks in python for testing
+When we meet we should be discussing the way to go ahead with solving the closed loop problems and then we should read documentations listed above
